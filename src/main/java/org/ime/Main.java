@@ -20,15 +20,20 @@ public class Main {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://imejob.com/");
         driver.findElement(By.xpath("//div[@class=' css-ackcql']/input")).sendKeys("Java");
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("div.css-1tje9e2-option"))));
         WebElement listelement = driver.findElement(By.cssSelector("div.css-1tje9e2-option")); ////div[@id='react-select-5-listbox']/div/div
         listelement.click();
         // driver.findElement(By.id("react-select-2-input")).click();
         driver.findElement(By.xpath("//div[@class='search-area']/button")).click();
-
+        try {
+            Thread.sleep(5000);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
        // WebDriverWait wait2 = new WebDriverWait(driver,Duration.ofSeconds(25));
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("div.css-1tje9e2-option"))));
+       // wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("div.css-1tje9e2-option"))));
 
 
         List<WebElement> jobList1 = driver.findElements(By.xpath("//div[@class='oppening-con ']/h2"));
